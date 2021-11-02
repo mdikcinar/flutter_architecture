@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_architecture/core/extensions/context_extension.dart';
+import 'package:flutter_architecture/core/extensions/string_extension.dart';
+import 'package:flutter_architecture/core/init/language/locale_keys.g.dart';
 import '/constants/app_constats.dart';
 import '/core/views/rate/ratewidget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -19,36 +22,39 @@ Future<void> showRateUsDialog({
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              height: MediaQuery.of(context).size.height * 0.2,
-              padding: EdgeInsets.all(10),
+              height: context.dynamicHeight(0.2),
+              padding: EdgeInsets.all(context.normalPadding),
               child: SvgPicture.asset(ApplicationConstants.rateUsStarPath, semanticsLabel: 'rate-us'),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: context.normalPadding),
             Text(
-              'Your opinion matter to us!',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              LocaleKeys.rateUsTitle.locale,
+              style: TextStyle(fontSize: context.highTextSize, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: context.highPadding),
             Text(
-              'If you enjoy using Workout Tracker app, would you mind rating us, then?',
+              LocaleKeys.rateUsSubtitle.locale,
+              style: TextStyle(
+                fontSize: context.normalTextSize,
+              ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 10),
+            SizedBox(height: context.normalPadding),
             RateWidget(
               onChanged: (value) => rateValue = value,
             ),
-            SizedBox(height: 10),
+            SizedBox(height: context.normalPadding),
             CustomButton(
               onPressed: () async {
                 onPressedRate(rateValue);
               },
-              title: 'Rate',
+              title: LocaleKeys.generalRate.locale,
             ),
             TextButton(
               onPressed: () {
                 onMaybeLater();
               },
-              child: Text('Maybe later'),
+              child: Text(LocaleKeys.maybeLater.locale),
             )
           ],
         ),
