@@ -1,0 +1,1 @@
+enum LoginFormStatus { signIn, register }

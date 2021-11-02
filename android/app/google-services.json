@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "334172014929",
+    "project_id": "flutter-architecture-ef7fd",
+    "storage_bucket": "flutter-architecture-ef7fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334172014929:android:f16192c020ed894216eb70",
+        "android_client_info": {
+          "package_name": "com.betterlifewithapps.flutter_architecture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "334172014929-6jigrsndbpvr558pbbmdu7d237vjic8b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHrf88Vibinxqh9EOl-3syftajHzIj60s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "334172014929-6jigrsndbpvr558pbbmdu7d237vjic8b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
