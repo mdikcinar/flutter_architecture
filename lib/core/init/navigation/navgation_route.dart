@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_architecture/core/views/language/language_view.dart';
+import 'package:flutter_architecture/view/main/main_view.dart';
 import '/constants/navigation_constants.dart';
 import '../../base/view/not_found_navigaiton.dart';
 /*import 'package:movieet/view/upgrade_page/view/privacy_page.dart';
@@ -13,8 +15,10 @@ class NavigationRoute {
 
   Route<dynamic> generateRoute(RouteSettings args) {
     switch (args.name) {
-      /*case NavigationConstants.loginView:
-        return normalNavigate(const LoginView(), NavigationConstants.loginView);*/
+      case NavigationConstants.mainView:
+        return normalNavigate(const MainView(), NavigationConstants.mainView);
+      case NavigationConstants.languageView:
+        return normalNavigate(const LanguageView(), NavigationConstants.languageView);
       default:
         return MaterialPageRoute(builder: (context) => const NotFoundNavigationWidget());
     }

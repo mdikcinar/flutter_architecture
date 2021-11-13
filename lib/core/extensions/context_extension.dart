@@ -25,6 +25,15 @@ extension ContextExtension on BuildContext {
   double get extraLowIconSize => MediaQuery.of(this).size.height * 0.05;
   double get normalIconSize => MediaQuery.of(this).size.height * 0.025;
   double get highIconSize => MediaQuery.of(this).size.height * 0.03;
-  double get extraHighIconSize => MediaQuery.of(this).size.height * 0.05;
+  double get extraHighIconSize => MediaQuery.of(this).size.height * 0.04;
   double get fabSize => MediaQuery.of(this).size.height * 0.07;
+
+  ThemeData get theme => Theme.of(this);
+  Color get defaultTextColor {
+    if (Theme.of(this).textTheme.bodyText1 != null && Theme.of(this).textTheme.bodyText1!.color != null) {
+      return Theme.of(this).textTheme.bodyText1!.color!;
+    } else {
+      return Colors.white;
+    }
+  }
 }

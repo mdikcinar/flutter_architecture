@@ -1,4 +1,5 @@
 import 'package:flutter_architecture/core/init/user/user_manager.dart';
+import 'package:flutter_architecture/core/views/splash/viewmodel/splash_viewmodel.dart';
 
 import '../../init/auth/firebase_auth_service.dart';
 import '../../init/iappPurchase/puchases_service.dart';
@@ -23,6 +24,9 @@ class ApplicationProvider {
     ),
     ChangeNotifierProvider(
       create: (context) => InAppPurchaseService(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => SplashViewModel(),
     ),
     ChangeNotifierProvider(
       create: (context) => UserManager(),
