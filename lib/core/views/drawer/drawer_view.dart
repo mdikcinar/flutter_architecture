@@ -8,6 +8,8 @@ import 'package:flutter_architecture/core/components/card/rounded_card.dart';
 import 'package:flutter_architecture/core/components/text/high_text.dart';
 import 'package:flutter_architecture/core/components/text/normal_text.dart';
 import 'package:flutter_architecture/core/extensions/context_extension.dart';
+import 'package:flutter_architecture/core/extensions/string_extension.dart';
+import 'package:flutter_architecture/core/init/language/locale_keys.g.dart';
 import 'package:flutter_architecture/core/init/navigation/navigation_service.dart';
 import 'package:flutter_architecture/core/init/theme/theme_manager.dart';
 import 'package:provider/provider.dart';
@@ -27,8 +29,8 @@ class DrawerView extends StatelessWidget {
                 RoundedCard(
                   title: Row(
                     children: [
-                      HighText(
-                        'Backup & Restore',
+                      const HighText(
+                        LocaleKeys.backupAndRestore,
                         bold: true,
                       ),
                       SizedBox(width: context.normalPadding),
@@ -46,62 +48,72 @@ class DrawerView extends StatelessWidget {
                       )
                     ],
                   ),
-                  subtitle: NormalText('Sign in and synchronize your data'),
+                  subtitle: const NormalText(LocaleKeys.backupAndRestoreSubtitle),
                   trailing: Icon(Icons.cloud_done_rounded),
                 ),
                 ButtonCard(
-                  title: 'Settings',
+                  title: LocaleKeys.settings,
                   children: [
+                    MenuButton(
+                      title: LocaleKeys.workoutSettings,
+                      icon: Icons.fitness_center_outlined,
+                      onPressed: () {},
+                    ),
+                    MenuButton(
+                      title: LocaleKeys.generalSettings,
+                      icon: Icons.settings_rounded,
+                      onPressed: () {},
+                    ),
+                    MenuButton(
+                      title: LocaleKeys.reminders,
+                      icon: Icons.notifications_active,
+                      onPressed: () {
+                        NavigationService.instance.navigateToPage(path: NavigationConstants.reminderView);
+                      },
+                    ),
+                    MenuButton(
+                      title: LocaleKeys.language,
+                      icon: Icons.language_rounded,
+                      onPressed: () {
+                        NavigationService.instance.navigateToPage(path: NavigationConstants.languageView);
+                      },
+                    ),
                     MenuSwitchButton(
-                      title: 'Dark Mode',
+                      title: LocaleKeys.darkmode,
                       icon: Icons.dark_mode_rounded,
-                      showBottomDrawer: true,
+                      showBottomDrawer: false,
                       switchDefaultValue: context.read<ThemeManager>().darkMode,
                       onPressed: (value) {
                         context.read<ThemeManager>().changeDarkMode(value);
                       },
                     ),
-                    MenuButton(
-                      title: 'Language',
-                      icon: Icons.language_rounded,
-                      showBottomDrawer: true,
-                      onPressed: () {
-                        NavigationService.instance.navigateToPage(path: NavigationConstants.languageView);
-                      },
-                    ),
-                    MenuButton(
-                      title: 'Settings',
-                      icon: Icons.settings_rounded,
-                      showBottomDrawer: false,
-                      onPressed: () {},
-                    ),
                   ],
                 ),
                 ButtonCard(
-                  title: 'Support Us',
+                  title: LocaleKeys.supportUs,
                   children: [
                     MenuButton(
-                      title: 'Rate Us',
+                      title: LocaleKeys.rateUs,
                       icon: Icons.star_rounded,
                       iconBackgroundColor: Colors.grey,
                       showBottomDrawer: true,
                       onPressed: () {},
                     ),
                     MenuButton(
-                      title: 'Share With Friends',
+                      title: LocaleKeys.shareWithFriends,
                       icon: Icons.share_rounded,
                       iconBackgroundColor: Colors.grey,
                       showBottomDrawer: true,
                       onPressed: () {},
                     ),
                     MenuButton(
-                      title: 'Feedback',
+                      title: LocaleKeys.feedback,
                       icon: Icons.create,
                       iconBackgroundColor: Colors.grey,
                       onPressed: () {},
                     ),
                     MenuButton(
-                      title: 'Privacy Policy',
+                      title: LocaleKeys.privacyPolicy,
                       icon: Icons.lock_outline_rounded,
                       iconBackgroundColor: Colors.grey,
                       showBottomDrawer: false,
@@ -114,7 +126,8 @@ class DrawerView extends StatelessWidget {
                   child: Row(
                     children: [
                       NormalText(
-                        'Version 1.0.0',
+                        LocaleKeys.version.locale + ' 1.0.0',
+                        locale: false,
                         color: context.defaultTextColor.withOpacity(0.6),
                       ),
                     ],

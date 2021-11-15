@@ -12,7 +12,7 @@ class LanguageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: HighText('Change Language'),
+        title: const HighText('Change Language'),
       ),
       body: ListView(
         children: [
@@ -39,7 +39,7 @@ class LanguageView extends StatelessWidget {
                 yesButtonText: 'Evet',
                 cacelButtonText: 'Hayır',
                 onPressedYes: () async {
-                  await context.setLocale(LanguageManager.instance!.enLocale);
+                  await context.setLocale(LanguageManager.instance!.trLocale);
                   NavigationService.instance.navigatePop();
                 },
               );

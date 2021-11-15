@@ -46,6 +46,7 @@ dependencies:
 
   #Locale Database
   sqflite: ^2.0.0+4
+  path: ^1.8.0
 
   #State management
   provider: ^6.0.1
@@ -64,6 +65,9 @@ dependencies:
   purchases_flutter: ^3.5.0 #Revenue cat https://docs.revenuecat.com/docs/getting-started
   google_mobile_ads: ^0.13.5 #additional settings required check package's readme file https://pub.dev/packages/google_mobile_ads
   webview_flutter: ^2.1.2 #needed for show terms and privacy policy
+
+  #other
+  flutter_datetime_picker: ^1.5.1
 
 dev_dependencies:
   flutter_test:
@@ -112,6 +116,7 @@ flutter:
     - assets/languages/
     - assets/svg/
     - assets/icons/
+    - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -143,5 +148,8 @@ flutter:
     - family: Ubuntu
       fonts:
         - asset: assets/fonts/Ubuntu-Light.ttf
+    - family: Barlow
+      fonts:
+        - asset: assets/fonts/Barlow-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

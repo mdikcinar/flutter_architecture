@@ -21,6 +21,8 @@ extension ContextExtension on BuildContext {
 
   double get lowRadius => MediaQuery.of(this).size.height * 0.01;
   double get normalRadius => MediaQuery.of(this).size.height * 0.015;
+  double get highRadius => MediaQuery.of(this).size.height * 0.02;
+  double get extraHighRadius => MediaQuery.of(this).size.height * 0.025;
 
   double get extraLowIconSize => MediaQuery.of(this).size.height * 0.05;
   double get normalIconSize => MediaQuery.of(this).size.height * 0.025;

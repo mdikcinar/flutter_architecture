@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_architecture/core/components/text/title_text.dart';
 import '../../extensions/context_extension.dart';
 import '../../init/navigation/navigation_service.dart';
 
-class CustomAppBar extends StatelessWidget {
+class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   final String? title;
   final bool iconCancel;
   final List<Widget>? actions;
@@ -11,10 +12,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        title: Text(
-          title ?? '',
-          style: TextStyle(fontSize: context.titleTextSize),
-        ),
+        title: TitleText(title ?? ''),
         leading: IconButton(
           onPressed: () => NavigationService.instance.navigatePop(),
           icon: Icon(
@@ -24,4 +22,7 @@ class CustomAppBar extends StatelessWidget {
         ),
         actions: actions);
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

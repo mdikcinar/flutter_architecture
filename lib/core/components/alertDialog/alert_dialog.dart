@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_architecture/core/components/text/normal_text.dart';
 
 Future<void> showCustomAlertDialog({
   required BuildContext context,
   required String? title,
-  required subtitle,
+  String? subtitle,
+  Widget? child,
   required Function() onPressedYes,
   bool secButton = false,
   Function()? onPressedSecButton,
@@ -20,7 +22,8 @@ Future<void> showCustomAlertDialog({
         content: SingleChildScrollView(
           child: ListBody(
             children: <Widget>[
-              Text(subtitle),
+              if (subtitle != null) NormalText(subtitle),
+              if (child != null) child,
             ],
           ),
         ),

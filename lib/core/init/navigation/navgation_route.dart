@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_architecture/core/views/language/language_view.dart';
+import 'package:flutter_architecture/core/views/reminder/reminder_view.dart';
 import 'package:flutter_architecture/view/main/main_view.dart';
 import '/constants/navigation_constants.dart';
 import '../../base/view/not_found_navigaiton.dart';
@@ -19,6 +20,8 @@ class NavigationRoute {
         return normalNavigate(const MainView(), NavigationConstants.mainView);
       case NavigationConstants.languageView:
         return normalNavigate(const LanguageView(), NavigationConstants.languageView);
+      case NavigationConstants.reminderView:
+        return normalNavigate(const ReminderView(), NavigationConstants.reminderView);
       default:
         return MaterialPageRoute(builder: (context) => const NotFoundNavigationWidget());
     }
